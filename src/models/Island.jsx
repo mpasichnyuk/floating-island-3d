@@ -7,18 +7,18 @@ Source: https://sketchfab.com/3d-models/boatrestaurant-c02032f8a7ee4c538e1f76e8f
 Title: Boatrestaurant
 */
 
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import islandScene from "../assets/3d/boatrestaurant.glb";
 import { a } from "@react-spring/three";
 
-const Island = (props) => {
-  const { isRotating, setIsRotating } = props;
+const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
+  // const { isRotating, setIsRotating } = props;
   const { nodes, materials } = useGLTF(islandScene);
   const { gl, viewport } = useThree();
   const lastX = useRef(0);
-  const rotationSpeed = useRef(0);
+  const rotationSpeed = useRef(0.1);
   const dampingFactor = 0.9;
   const islandRef = useRef();
 
@@ -28,6 +28,7 @@ const Island = (props) => {
     setIsRotating(true);
 
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    console.log("clientX: ", clientX);
 
     lastX.current = clientX;
   };
@@ -36,6 +37,7 @@ const Island = (props) => {
     e.preventDefault();
     setIsRotating(false);
   };
+
   const handlePointerMove = (e) => {
     e.stopPropagation();
     e.preventDefault();
@@ -44,31 +46,43 @@ const Island = (props) => {
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
 
       const delta = (clientX - lastX.current) / viewport.width;
+      console.log("delta: ", delta);
 
       islandRef.current.rotation.y += delta * 0.01 * Math.PI;
       lastX.current = clientX;
 
       rotationSpeed.current = delta * 0.01 * Math.PI;
+      console.log("rotationSpeed.current: ", rotationSpeed.current);
+      console.log("delta: ", delta);
     }
   };
 
   const handleKeyDown = (e) => {
+    console.log("keydown!");
     if (e.key === "arrowLeft") {
       if (!isRotating) setIsRotating(true);
-      islandRef.current.rotation.y += 0.01 * Math.PI;
+      islandRef.current.rotation.y += 3 * Math.PI;
+      rotationSpeed.current = 0.7;
     } else if (e.key === "arrowRight") {
       if (!isRotating) setIsRotating(true);
-      islandRef.current.rotation.y -= 0.01 * Math.PI;
+      islandRef.current.rotation.y -= 23 * Math.PI;
+      rotationSpeed.current = 0.7;
     }
   };
 
   const handleKeyUp = (e) => {
+    console.log("key up!");
+    console.log(islandRef.current.rotation.y);
+
     if (e.key === "arrowLeft" || e.key === "arrowRight") {
       setIsRotating(false);
     }
   };
 
   useFrame(() => {
+    // console.log(islandRef.current.rotation.y);
+    // console.log(rotationSpeed.current);
+
     if (!isRotating) {
       rotationSpeed.current *= dampingFactor;
 
@@ -135,7 +149,7 @@ const Island = (props) => {
   }, [gl]);
 
   return (
-    <a.group ref={islandRef} {...props}>
+    <a.group {...props} ref={islandRef}>
       <group scale={0.01}>
         <mesh
           geometry={nodes.boat_restaurant_tutto_0.geometry}
