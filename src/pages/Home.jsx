@@ -1,18 +1,22 @@
 /* eslint-disable react/no-unknown-property */
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Loader from "../components/Loader";
 import Island from "../models/Island";
 import Sky from "../models/Sky";
+import Bird from "../models/Bird";
+import Plane from "../models/Plane";
 
 const Home = () => {
+  const [isRotating, setIsRotating] = useState(false);
+
   const adjustIslandForScreenSize = () => {
     let screenScale, screenPosition;
     let rotation = [0, 3, 0];
 
     if (window.innerWidth < 768) {
       screenScale = [0.9, 0.9, 0.9];
-      screenPosition = [0, -6.5, -43];
+      screenPosition = [-0.5, -0.5, 4.5];
     } else {
       screenScale = [1, 1, 1];
       screenPosition = [-0.5, -0.5, 4.5];
@@ -26,7 +30,9 @@ const Home = () => {
   return (
     <section className="w-full h-screen relative">
       <Canvas
-        className="w-full h-screen bg-transparent"
+        className={`w-full h-screen bg-transparent ${
+          isRotating ? "cursor-grabbing" : "cursor-grab"
+        }`}
         camera={{
           near: 0.1,
           far: 1000,
@@ -41,10 +47,14 @@ const Home = () => {
             intensity={1}
           />
           <Sky />
+          <Bird />
+          <Plane position={[1, 2, 1]} scale={[1, 1, 1]} />
           <Island
             position={islandPosition}
             scale={islandScale}
             rotation={islandRotation}
+            isRotating={isRotating}
+            setIsRotating={setIsRotating}
           />
         </Suspense>
       </Canvas>
