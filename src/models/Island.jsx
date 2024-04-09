@@ -9,6 +9,8 @@ Title: Boatrestaurant
 
 import { useRef, useEffect, useState } from "react";
 import { useGLTF } from "@react-three/drei";
+import * as THREE from "three";
+import { Box3, Vector3 } from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 import islandScene from "../assets/3d/boatrestaurant.glb";
 import { a } from "@react-spring/three";
@@ -82,7 +84,18 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     }
   };
 
+  const centerOffsetMesh = (mesh) => {
+    var center = new THREE.Vector3();
+    mesh.geometry.computeBoundingBox();
+    mesh.geometry.boundingBox.getCenter(center);
+    mesh.geometry.center();
+    mesh.position.copy(center);
+  };
+
   useEffect(() => {
+    centerOffsetMesh(nodes.boat_restaurant_tutto_0);
+    centerOffsetMesh(nodes.boat_restaurant_rete1_0);
+
     const canvas = gl.domElement;
     canvas.addEventListener("pointerup", handlePointerUp);
     canvas.addEventListener("pointerdown", handlePointerDown);
@@ -100,9 +113,6 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
   }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
 
   useFrame(() => {
-    // console.log(islandRef.current.rotation.y);
-    // console.log(rotationSpeed.current);
-
     if (!isRotating) {
       rotationSpeed.current *= dampingFactor;
 
@@ -151,8 +161,35 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     }
   });
 
+  // useFrame(({ clock }) => {
+  //   const mesh = islandRef.current;
+  //   if (mesh) {
+  //     // Find the object's bounding box
+  //     const box = new Box3().setFromObject(mesh);
+
+  //     // Calculate the center of the bounding box
+  //     const center = new Vector3();
+  //     box.getCenter(center);
+
+  //     // Set the object's position to the center of its bounding box
+  //     mesh.position.copy(center);
+
+  //     // Invert the object's rotation to keep its orientation
+  //     mesh.rotation.set(0, 0, 0);
+
+  //     // Adjust the object's geometry to match the new pivot point
+  //     mesh.geometry.applyMatrix4(
+  //       new THREE.Matrix4().makeTranslation(-center.x, -center.y, -center.z)
+  //     );
+
+  //     // Rotate the object around its center
+  //     mesh.rotation.x += 0.01 * clock.getDelta();
+  //     mesh.rotation.y += 0.01 * clock.getDelta();
+  //   }
+  // });
+
   return (
-    <a.group {...props} ref={islandRef}>
+    <a.group ref={islandRef}>
       <group scale={0.01}>
         <mesh
           geometry={nodes.boat_restaurant_tutto_0.geometry}
