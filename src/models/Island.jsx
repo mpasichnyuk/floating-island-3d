@@ -18,6 +18,7 @@ import { a } from "@react-spring/three";
 const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
   // const { isRotating, setIsRotating } = props;
   const islandRef = useRef();
+  console.log("islandRef  ", islandRef?.current);
   const { nodes, materials } = useGLTF(islandScene);
   const { gl, viewport } = useThree();
   const lastX = useRef(0);
@@ -30,7 +31,6 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     setIsRotating(true);
 
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    console.log("clientX: ", clientX);
 
     lastX.current = clientX;
   };
@@ -48,15 +48,12 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
 
       const delta = (clientX - lastX.current) / viewport.width;
-      console.log("delta: ", delta);
 
       islandRef.current.rotation.y += delta * 0.01 * Math.PI;
 
       lastX.current = clientX;
 
       rotationSpeed.current = delta * 0.01 * Math.PI;
-      console.log("rotationSpeed.current: ", rotationSpeed.current);
-      console.log("delta: ", delta);
     }
   };
 
@@ -76,9 +73,6 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
   };
 
   const handleKeyUp = (e) => {
-    console.log("key up!");
-    console.log(islandRef.current.rotation.y);
-
     if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
       setIsRotating(false);
     }
@@ -160,33 +154,6 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
       }
     }
   });
-
-  // useFrame(({ clock }) => {
-  //   const mesh = islandRef.current;
-  //   if (mesh) {
-  //     // Find the object's bounding box
-  //     const box = new Box3().setFromObject(mesh);
-
-  //     // Calculate the center of the bounding box
-  //     const center = new Vector3();
-  //     box.getCenter(center);
-
-  //     // Set the object's position to the center of its bounding box
-  //     mesh.position.copy(center);
-
-  //     // Invert the object's rotation to keep its orientation
-  //     mesh.rotation.set(0, 0, 0);
-
-  //     // Adjust the object's geometry to match the new pivot point
-  //     mesh.geometry.applyMatrix4(
-  //       new THREE.Matrix4().makeTranslation(-center.x, -center.y, -center.z)
-  //     );
-
-  //     // Rotate the object around its center
-  //     mesh.rotation.x += 0.01 * clock.getDelta();
-  //     mesh.rotation.y += 0.01 * clock.getDelta();
-  //   }
-  // });
 
   return (
     <a.group ref={islandRef}>
