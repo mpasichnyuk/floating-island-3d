@@ -1,27 +1,31 @@
 /* eslint-disable react/no-unknown-property */
 import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
+import { Box3, Vector3 } from "three";
+
 import Loader from "../components/Loader";
 import Island from "../models/Island";
 import Sky from "../models/Sky";
 import Bird from "../models/Bird";
 import Plane from "../models/Plane";
+import HomeInfo from "../components/HomeInfo";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
 
   const adjustIslandForScreenSize = () => {
-    let screenScale, screenPosition;
+    let screenScale = [0, 0, 0];
+    let screenPosition = [0, 0, 0];
     let rotation = [0, 3, 0];
 
-    if (window.innerWidth < 768) {
-      screenScale = [0.9, 0.9, 0.9];
-      screenPosition = [-0.5, -0.5, 4.5];
-    } else {
-      screenScale = [1, 1, 1];
-      screenPosition = [-0.5, -0.5, 4.5];
-    }
+    // if (window.innerWidth < 768) {
+    //   screenScale = [0.9, 0.9, 0.9];
+    //   screenPosition = [-0.5, -0.5, 4.5];
+    // } else {
+    //   screenScale = [1, 1, 1];
+    //   screenPosition = [-0.5, -0.5, 4.5];
+    // }
     return [screenScale, screenPosition, rotation];
   };
 
@@ -31,7 +35,7 @@ const Home = () => {
   return (
     <section className="w-full h-screen relative">
       <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
-        POPUP HERE
+        {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
       <Canvas
         className={`w-full h-screen bg-transparent ${
