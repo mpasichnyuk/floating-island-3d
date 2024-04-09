@@ -30,6 +30,9 @@ const Home = () => {
 
   return (
     <section className="w-full h-screen relative">
+      <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
+        POPUP HERE
+      </div>
       <Canvas
         className={`w-full h-screen bg-transparent ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
@@ -47,12 +50,13 @@ const Home = () => {
             groundColor={"#000000"}
             intensity={1}
           />
-          <Sky />
+          <Sky isRotating={isRotating} />
           <Bird />
           <Plane
             isRotating={isRotating}
-            position={[1, 2, 1]}
-            scale={[1, 1, 1]}
+            position={[0, 0, 3]}
+            rotation={[0.3, 0.8, 0]}
+            scale={[0.5, 0.5, 0.5]}
           />
           <Island
             position={islandPosition}
@@ -65,10 +69,6 @@ const Home = () => {
           />
         </Suspense>
       </Canvas>
-      {/*       
-      <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
-        // POPUP HERE //{" "}
-      </div> */}
     </section>
   );
 };
