@@ -15,12 +15,12 @@ import { a } from "@react-spring/three";
 
 const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
   // const { isRotating, setIsRotating } = props;
+  const islandRef = useRef();
   const { nodes, materials } = useGLTF(islandScene);
   const { gl, viewport } = useThree();
   const lastX = useRef(0);
   const rotationSpeed = useRef(0.1);
   const dampingFactor = 0.9;
-  const islandRef = useRef();
 
   const handlePointerDown = (e) => {
     e.stopPropagation();
@@ -49,6 +49,7 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
       console.log("delta: ", delta);
 
       islandRef.current.rotation.y += delta * 0.01 * Math.PI;
+
       lastX.current = clientX;
 
       rotationSpeed.current = delta * 0.01 * Math.PI;
@@ -59,14 +60,16 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
 
   const handleKeyDown = (e) => {
     console.log("keydown!");
-    if (e.key === "arrowLeft") {
+    if (e.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true);
-      islandRef.current.rotation.y += 3 * Math.PI;
-      rotationSpeed.current = 0.7;
-    } else if (e.key === "arrowRight") {
+
+      islandRef.current.rotation.y += 0.005 * Math.PI;
+      rotationSpeed.current = 0.07;
+    } else if (e.key === "ArrowRight") {
       if (!isRotating) setIsRotating(true);
-      islandRef.current.rotation.y -= 23 * Math.PI;
-      rotationSpeed.current = 0.7;
+
+      islandRef.current.rotation.y -= 0.005 * Math.PI;
+      rotationSpeed.current = -0.07;
     }
   };
 
@@ -74,7 +77,7 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     console.log("key up!");
     console.log(islandRef.current.rotation.y);
 
-    if (e.key === "arrowLeft" || e.key === "arrowRight") {
+    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
       setIsRotating(false);
     }
   };
