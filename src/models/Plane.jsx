@@ -5,8 +5,11 @@ import { act } from "react-dom/test-utils";
 
 const Plane = (props) => {
   const { isRotating } = props;
+  console.log('isRotating: ', isRotating);
   const ref = useRef();
   const { scene, animations } = useGLTF(planeModel);
+  console.log("animations: ", animations);
+  console.log("scene: ", scene);
   const { actions } = useAnimations(animations, scene);
 
   useEffect(() => {
