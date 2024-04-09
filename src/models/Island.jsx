@@ -15,7 +15,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 import islandScene from "../assets/3d/boatrestaurant.glb";
 import { a } from "@react-spring/three";
 
-const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
+const Island = ({ isRotating, setIsRotating, setCurrentStage, rotation }) => {
   // const { isRotating, setIsRotating } = props;
   const islandRef = useRef();
   console.log("islandRef  ", islandRef?.current);
@@ -117,6 +117,7 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     } else {
       const rotation = islandRef.current.rotation.y;
       /**
+       * this code was copied from Internet
        * Normalize the rotation value to ensure it stays within the range [0, 2 * Math.PI].
        * The goal is to ensure that the rotation value remains within a specific range to
        * prevent potential issues with very large or negative rotation values.
@@ -156,7 +157,7 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
   });
 
   return (
-    <a.group ref={islandRef}>
+    <a.group rotation={rotation} ref={islandRef}>
       <group scale={0.01}>
         <mesh
           geometry={nodes.boat_restaurant_tutto_0.geometry}
