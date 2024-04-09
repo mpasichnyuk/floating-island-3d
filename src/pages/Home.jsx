@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Box3, Vector3 } from "three";
 
 import Loader from "../components/Loader";
 import Island from "../models/Island";
@@ -16,8 +15,8 @@ const Home = () => {
 
   const adjustIslandForScreenSize = () => {
     let screenScale = [0, 0, 0];
-    let screenPosition = [0, 0, 0];
-    let rotation = [0, 3, 0];
+    let screenPosition = [1, 2, 0];
+    let rotation = [0.2, 2, 0];
 
     // if (window.innerWidth < 768) {
     //   screenScale = [0.9, 0.9, 0.9];
