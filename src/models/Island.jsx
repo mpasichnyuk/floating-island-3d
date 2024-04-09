@@ -82,6 +82,23 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     }
   };
 
+  useEffect(() => {
+    const canvas = gl.domElement;
+    canvas.addEventListener("pointerup", handlePointerUp);
+    canvas.addEventListener("pointerdown", handlePointerDown);
+    canvas.addEventListener("pointermove", handlePointerMove);
+    window.addEventListener("keyup", handleKeyUp);
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      canvas.removeEventListener("pointerup", handlePointerUp);
+      canvas.removeEventListener("pointerdown", handlePointerDown);
+      canvas.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("keyup", handleKeyUp);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
+
   useFrame(() => {
     // console.log(islandRef.current.rotation.y);
     // console.log(rotationSpeed.current);
@@ -133,23 +150,6 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
       }
     }
   });
-
-  useEffect(() => {
-    const canvas = gl.domElement;
-    canvas.addEventListener("pointerup", handlePointerUp);
-    canvas.addEventListener("pointerdown", handlePointerDown);
-    canvas.addEventListener("pointermove", handlePointerMove);
-    document.addEventListener("keyup", handleKeyUp);
-    document.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      canvas.removeEventListener("pointerup", handlePointerUp);
-      canvas.removeEventListener("pointerdown", handlePointerDown);
-      canvas.removeEventListener("pointermove", handlePointerMove);
-      document.removeEventListener("keyup", handleKeyUp);
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [gl]);
 
   return (
     <a.group {...props} ref={islandRef}>
