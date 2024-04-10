@@ -158,7 +158,7 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, rotation }) => {
 
   return (
     <a.group rotation={rotation} ref={islandRef}>
-      <group scale={0.01}>
+      <group scale={0.012}>
         <mesh
           geometry={nodes.boat_restaurant_tutto_0.geometry}
           material={materials.tutto}
