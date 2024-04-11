@@ -11,6 +11,7 @@ const DEFAULT_FORM = {
 };
 
 const Contacts = () => {
+  const [currentAnimation, setcUrrentAnimation] = useState("idle");
   const [isLoading, setIsLoading] = useState(false);
   const formRef = useRef(null);
   const [form, setForm] = useState(DEFAULT_FORM);
@@ -18,6 +19,7 @@ const Contacts = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setcUrrentAnimation("hit");
 
     emailjs
       .send(
@@ -34,6 +36,9 @@ const Contacts = () => {
       )
       .then(() => {
         setIsLoading(false);
+        setTimeout(() => {
+          setcUrrentAnimation("idle");
+        }, 3000);
 
         setForm(DEFAULT_FORM);
         // TODO show sucess message
@@ -41,6 +46,7 @@ const Contacts = () => {
       })
       .catch((error) => {
         console.log(error);
+        setcUrrentAnimation("idle");
         // TODO show alert with error
       });
   };
@@ -51,8 +57,9 @@ const Contacts = () => {
       [e.target.name]: e.target.value,
     });
   };
-  const handleFocus = () => {};
-  const handleBlur = () => {};
+  const handleFocus = () => setcUrrentAnimation("walk");
+
+  const handleBlur = () => setcUrrentAnimation("idle");
 
   return (
     <section className="relative flex lg:flex-row flex-col max-container">
@@ -122,6 +129,7 @@ const Contacts = () => {
           <directionalLight intensity={2.5} position={[0, 0, 1]} />
           <Suspense fallback={<Loader />}>
             <Fox
+              currentAnimation={currentAnimation}
               scale={[0.5, 0.5, 0.5]}
               rotation={[12.6, -0.6, 0]}
               position={[0.5, 0.35, 0]}
