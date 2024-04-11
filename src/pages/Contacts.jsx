@@ -1,30 +1,48 @@
-import { useState, useRef } from "react";
+import { useState, Suspense, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { Canvas } from "@react-three/fiber";
+import Fox from "../models/Fox";
+import Loader from "../components/Loader";
+
+const DEFAULT_FORM = {
+  name: "",
+  email: "",
+  message: "",
+};
+
 const Contacts = () => {
   const [isLoading, setIsLoading] = useState(false);
   const formRef = useRef(null);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [form, setForm] = useState(DEFAULT_FORM);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    emailjs.send(
-      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-      {
-        from_name: form.name,
-        to_name: "Mikhail",
-        from_email: form.email,
-        to_email: "mik86@gmail.com",
-        message: form.message,
-      },
-      import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-    );
+    emailjs
+      .send(
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          to_name: "Mikhail",
+          from_email: form.email,
+          to_email: "mik86@gmail.com",
+          message: form.message,
+        },
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        setIsLoading(false);
+
+        setForm(DEFAULT_FORM);
+        // TODO show sucess message
+        // TODO hide alert
+      })
+      .catch((error) => {
+        console.log(error);
+        // TODO show alert with error
+      });
   };
 
   const handleChange = (e) => {
@@ -97,6 +115,18 @@ const Contacts = () => {
             {isLoading ? "Sending..." : "Send message"}
           </button>
         </form>
+      </div>
+
+      <div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]">
+        <Canvas camera={{ position: [0, 0, 5] }}>
+          <Suspense fallback={<Loader />}>
+            <Fox
+              scale={[0.5, 0.5, 0.5]}
+              rotation={[12, 0, 0]}
+              position={[0.5, 0.35, 0]}
+            />
+          </Suspense>
+        </Canvas>
       </div>
     </section>
   );
