@@ -1,4 +1,5 @@
 import { useState, Suspense, useRef } from "react";
+import Alert from "../components/Alert";
 import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
 import Fox from "../models/Fox";
@@ -69,6 +70,7 @@ const Contacts = () => {
   return (
     <section className="relative flex lg:flex-row flex-col max-container">
       {alert.show && <Alert {...alert} />}
+      <Alert {...alert} text="testing" />
       <div className="flex-1 min-w[50%] flex flex-col">
         <h1 className="head-text">Get in touch!</h1>
         <form
