@@ -13,11 +13,11 @@ import { Box3, Vector3 } from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 import islandScene from "../assets/3d/boatrestaurant.glb";
 import { a } from "@react-spring/three";
+const MANUAL_ROTATION = { isRotating: false, direction: "right" };
 
 const Island = ({ isRotating, setIsRotating, setCurrentStage, rotation }) => {
   // const { isRotating, setIsRotating } = props;
   const islandRef = useRef();
-  console.log("islandRef  ", islandRef?.current);
   const { nodes, materials } = useGLTF(islandScene);
   const { gl, viewport } = useThree();
   const lastX = useRef(0);
@@ -57,7 +57,6 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, rotation }) => {
   };
 
   const handleKeyDown = (e) => {
-    console.log("keydown!");
     if (e.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true);
 
@@ -134,6 +133,7 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, rotation }) => {
        */
       const normalizedRotation =
         ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+      console.log("normalizedRotation: ", normalizedRotation);
 
       // Set the current stage based on the island's orientation
       switch (true) {
@@ -143,10 +143,10 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, rotation }) => {
         case normalizedRotation >= 0.85 && normalizedRotation <= 1.3:
           setCurrentStage(3);
           break;
-        case normalizedRotation >= 2.4 && normalizedRotation <= 2.6:
+        case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
           setCurrentStage(2);
           break;
-        case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
+        case normalizedRotation >= 2.4 && normalizedRotation <= 2.9:
           setCurrentStage(1);
           break;
         default:
@@ -155,15 +155,16 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, rotation }) => {
     }
   });
 
+  // this useFrame makes Island slowly float up and down
+
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
-    const amplitude = 0.1; // Adjust this value to control the amplitude of the vertical motion
-    const frequency = 0.3; // Adjust this value to control the frequency of the vertical motion
+    const amplitude = 0.1;
+    const frequency = 0.3;
 
     // Calculate the new vertical position using a sine wave
     const verticalPosition = Math.sin(elapsedTime * frequency) * amplitude;
 
-    // Update the position of the plane
     islandRef.current.position.y = verticalPosition;
   });
 
