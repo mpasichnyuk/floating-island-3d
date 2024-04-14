@@ -48,13 +48,13 @@ const CreditsTooltip = () => {
         onMouseLeave={() => setShowTooltip(false)}
         className="relative inline-block"
       >
-        <span className="text-sm cursor-pointer hover:underline">
+        <span className="text-sm cursor-pointer text-slate-400	 hover:underline">
           {creditsText}
         </span>
         {showTooltip && (
           <div
             ref={tooltipRef}
-            className=" bottom-10 right-5 z-10 bg-gray-800 text-white p-4 rounded-md shadow-md"
+            className=" bottom-10 right-5 z-11 bg-gray-800 text-slate-400	 p-4 rounded-md shadow-md"
           >
             {tooltipContent}
           </div>
