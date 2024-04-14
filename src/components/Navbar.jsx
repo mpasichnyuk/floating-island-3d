@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Contacts from "../pages/Contacts";
 
 const Navbar = () => {
   return (
@@ -27,6 +28,14 @@ const Navbar = () => {
           }
         >
           Projects
+        </NavLink>
+        <NavLink
+          to="/contacts"
+          className={({ isActive }) =>
+            isActive ? "text-blue-500" : "text-black"
+          }
+        >
+          Contacts
         </NavLink>
       </nav>
     </header>
