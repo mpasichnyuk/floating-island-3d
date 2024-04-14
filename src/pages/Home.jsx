@@ -9,10 +9,14 @@ import Bird from "../models/Bird";
 import Plane from "../models/Plane";
 import HomeInfo from "../components/HomeInfo";
 import CreditsTooltip from "../components/Credits";
+import Hero from "../components/Hero";
+import Hint from "../components/Hint";
+// import { Stats, OrbitControls } from "@react-three/drei";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
+  const [showHint, setShowHint] = useState(true);
 
   const adjustIslandForScreenSize = () => {
     let screenScale = [0, 0, 0];
@@ -37,6 +41,14 @@ const Home = () => {
       <div className="absolute bottom-28 left-0 right-0 z-10 flex items-center justify-center">
         {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
+
+      <div className="absolute left-0 right-0 top-[15%]  z-10 flex items-center justify-center">
+        {showHint && <Hint />}
+      </div>
+
+      {/* <div className=" absolute mt-10 ml-10 left-10 top-10  z-10 ">
+        <Hero />
+      </div> */}
       <Canvas
         className={`w-full h-screen bg-transparent ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
@@ -58,8 +70,8 @@ const Home = () => {
           <Bird />
           <Plane
             isRotating={isRotating}
-            // position={[0, 0, 0]}
-            position={[0, 0, 3]}
+            position={[0, 0, 3.3]}
+            // position={[0, 0, 3]}
             // rotation={[0, 2.5, 0]}
             rotation={[0, 1.3, 0.4]}
             scale={[0.3, 0.3, 0.3]}
@@ -74,6 +86,8 @@ const Home = () => {
             setCurrentStage={setCurrentStage}
           />
         </Suspense>
+        {/* <OrbitControls />
+        <Stats /> */}
       </Canvas>
       <CreditsTooltip />
     </section>
