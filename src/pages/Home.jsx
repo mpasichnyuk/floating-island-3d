@@ -8,6 +8,7 @@ import Sky from "../models/Sky";
 import Bird from "../models/Bird";
 import Plane from "../models/Plane";
 import HomeInfo from "../components/HomeInfo";
+import CreditsTooltip from "../components/Credits";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
@@ -33,7 +34,7 @@ const Home = () => {
 
   return (
     <section className="w-full h-screen relative">
-      <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
+      <div className="absolute bottom-28 left-0 right-0 z-10 flex items-center justify-center">
         {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
       <Canvas
@@ -74,6 +75,7 @@ const Home = () => {
           />
         </Suspense>
       </Canvas>
+      <CreditsTooltip />
     </section>
   );
 };
