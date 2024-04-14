@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -21,6 +22,20 @@ export default {
       },
       boxShadow: {
         card: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+      },
+    },
+    animation: {
+      "left-right": "left-right 2s infinite",
+      "right-left": "right-left 2s infinite",
+    },
+    keyframes: {
+      "left-right": {
+        "0%, 100%": { transform: "translateX(-5px)" },
+        "50%": { transform: "translateX(5px)" },
+      },
+      "right-left": {
+        "0%, 100%": { transform: "translateX(5px)" },
+        "50%": { transform: "translateX(-5px)" },
       },
     },
   },
