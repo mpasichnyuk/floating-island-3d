@@ -6,7 +6,6 @@ License: CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
 Source: https://sketchfab.com/3d-models/boatrestaurant-c02032f8a7ee4c538e1f76e8f20a6c1b
 Title: Boatrestaurant
 */
-
 import { useRef, useEffect, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
@@ -154,6 +153,18 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, rotation }) => {
           setCurrentStage(null);
       }
     }
+  });
+
+  useFrame(({ clock }) => {
+    const elapsedTime = clock.getElapsedTime();
+    const amplitude = 0.1; // Adjust this value to control the amplitude of the vertical motion
+    const frequency = 0.3; // Adjust this value to control the frequency of the vertical motion
+
+    // Calculate the new vertical position using a sine wave
+    const verticalPosition = Math.sin(elapsedTime * frequency) * amplitude;
+
+    // Update the position of the plane
+    islandRef.current.position.y = verticalPosition;
   });
 
   return (
