@@ -2,6 +2,9 @@ import { useRef, useEffect } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import planeModel from "../assets/3d/cartoon_plane.glb";
 import { useFrame } from "@react-three/fiber";
+const FLYING_ROTATION = [1, 1.3, 0.4];
+const DEFAULT_ROTATION = [0, 1.3, 0.4];
+
 const Plane = (props) => {
   const { isRotating } = props;
   const planeRef = useRef();
@@ -9,43 +12,43 @@ const Plane = (props) => {
   const { actions } = useAnimations(animations, scene);
 
   useEffect(() => {
-    if (isRotating) {
-      actions["Main"].play();
-    } else {
-      actions["Main"].stop();
-    }
+    actions["Main"].play();
+    // if (isRotating) {
+    //   actions["Main"].play();
+    // } else {
+    //   actions["Main"].stop();
+    // }
 
     return () => {
       // second;
     };
   }, [actions, isRotating]);
 
-  useFrame(({ clock, camera }) => {
+  // this useFrame makes it slowly float up and down
+  useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
-    const radius = 4; // Adjust this value to control the radius of the circular motion
-    const speed = 0.2; // Adjust this value to control the speed of the circular motion
+    const amplitude = 0.02;
+    const frequency = 1.5;
 
-    // // Calculate the new position using polar coordinates
-    // const angle = elapsedTime * speed + 3;
-    // const x = Math.cos(angle) * radius;
-    // const z = Math.sin(angle) * radius;
-
-    // // Update the position and rotation of the plane
-    // planeRef.current.position.x = x;
-    // planeRef.current.position.z = z;
-
-    // // Calculate the direction of movement
-    // const dx = Math.cos(angle + Math.PI / 2);
-    // const dz = Math.sin(angle + Math.PI / 2);
-
-    // // Calculate the rotation needed to point the plane in the direction of movement
-    // const rotationY = Math.atan2(dz, dx);
-
-    // planeRef.current.rotation.y = rotationY;
-
-    // // Optionally, you can add a small oscillation to the y position
-    // planeRef.current.position.y = Math.sin(elapsedTime * 2) * 0.2;
+    // Calculate the new vertical position using a sine wave
+    const verticalPosition = Math.sin(elapsedTime * frequency) * amplitude;
+    planeRef.current.position.y = verticalPosition;
   });
+
+  // Update the rotation in each frame
+  // useFrame(() => {
+  //   if (isRotating) {
+  //     // Rotate towards the target rotation
+  //     planeRef.current.rotation.set(
+  //       ...planeRef.current.rotation.lerp(FLYING_ROTATION, 0.1)
+  //     );
+  //   } else {
+  //     // Rotate back to the default rotation
+  //     planeRef.current.rotation.set(
+  //       ...planeRef.current.rotation.lerp(DEFAULT_ROTATION, 0.1)
+  //     );
+  //   }
+  // });
 
   return (
     <mesh {...props} ref={planeRef}>
