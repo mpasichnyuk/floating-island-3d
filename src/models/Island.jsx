@@ -15,7 +15,13 @@ import islandScene from "../assets/3d/boatrestaurant.glb";
 import { a } from "@react-spring/three";
 const MANUAL_ROTATION = { isRotating: false, direction: "right" };
 
-const Island = ({ isRotating, setIsRotating, setCurrentStage, rotation }) => {
+const Island = ({
+  isRotating,
+  setIsRotating,
+  setCurrentStage,
+  rotation,
+  setShowHint,
+}) => {
   // const { isRotating, setIsRotating } = props;
   const islandRef = useRef();
   const { nodes, materials } = useGLTF(islandScene);
@@ -28,6 +34,7 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, rotation }) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(true);
+    setShowHint(false);
 
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
 

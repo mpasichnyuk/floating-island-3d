@@ -38,12 +38,12 @@ const Home = () => {
 
   return (
     <section className="w-full h-screen relative">
-      <div className="absolute bottom-28 left-0 right-0 z-10 flex items-center justify-center">
+      <div className="absolute bottom-[22%] left-0 right-0 z-10 flex items-center justify-center">
         {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
 
-      <div className="absolute left-0 right-0 top-[15%]  z-10 flex items-center justify-center">
-        {showHint && <Hint />}
+      <div className="absolute left-0 right-0 top-[10%]  z-10 flex items-center justify-center">
+        <Hint isVisible={showHint} />
       </div>
 
       {/* <div className=" absolute mt-10 ml-10 left-10 top-10  z-10 ">
@@ -77,6 +77,7 @@ const Home = () => {
             scale={[0.3, 0.3, 0.3]}
           />
           <Island
+            setShowHint={setShowHint}
             position={islandPosition}
             scale={islandScale}
             rotation={islandRotation}
