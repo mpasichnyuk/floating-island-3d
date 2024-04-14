@@ -50,7 +50,10 @@ const Contacts = () => {
         // TODO hide alert
       })
       .catch((error) => {
-        showAlert({ show: true, text: `somemthing went wrong! ${error}` });
+        showAlert({
+          show: true,
+          text: `Something went wrong! Check developer console for details.`,
+        });
         console.log(error);
         setcUrrentAnimation("idle");
         // TODO show alert with error
@@ -70,7 +73,6 @@ const Contacts = () => {
   return (
     <section className="relative flex lg:flex-row flex-col max-container">
       {alert.show && <Alert {...alert} />}
-      <Alert {...alert} text="testing" />
       <div className="flex-1 min-w[50%] flex flex-col">
         <h1 className="head-text">Get in touch!</h1>
         <form
