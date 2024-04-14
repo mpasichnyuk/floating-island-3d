@@ -1,6 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { arrow } from "../assets/icons";
+import { motion } from "framer-motion";
 
 const InfoBox = ({ text, link, btnText }) => {
   return (
@@ -17,10 +17,10 @@ const InfoBox = ({ text, link, btnText }) => {
 const renderContent = {
   1: (
     <h1 className="sm:text-xl sm:leading-snug text-center neo-brutalism-blue py-4 px-8 text-white mx-5">
-      Hi, I am
+      Hello, I am
       <span className="font-semibold mx-2 text-white">Mikhail</span>
       👋
-      <br />A Software Engineer from Charlotte, NC
+      <br />A Software Engineer based in Charlotte, NC
     </h1>
   ),
   2: (
@@ -48,7 +48,15 @@ const renderContent = {
 };
 
 const HomeInfo = ({ currentStage }) => {
-  return renderContent[currentStage] || null;
+  return (
+    <motion.div
+      initial={{ y: 100, opacity: 0 }} // Initial state
+      animate={{ y: 0, opacity: 1 }} // Animation state
+      transition={{ duration: 0.5 }} // Transition duration
+    >
+      {renderContent[currentStage] || null}
+    </motion.div>
+  );
 };
 
 export default HomeInfo;
