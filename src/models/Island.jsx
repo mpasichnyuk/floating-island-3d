@@ -140,14 +140,13 @@ const Island = ({
        */
       const normalizedRotation =
         ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-      console.log("normalizedRotation: ", normalizedRotation);
 
       // Set the current stage based on the island's orientation
       switch (true) {
         case normalizedRotation >= 5.45 && normalizedRotation <= 5.85:
           setCurrentStage(4);
           break;
-        case normalizedRotation >= 0.85 && normalizedRotation <= 1.3:
+        case normalizedRotation >= 0.8 && normalizedRotation <= 1.35:
           setCurrentStage(3);
           break;
         case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
