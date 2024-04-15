@@ -40,7 +40,7 @@ const Home = () => {
   return (
     <section className="w-full h-screen relative">
       <div className="absolute bottom-[22%] left-0 right-0 z-10 flex items-center justify-center">
-        <HomeInfo isVisible={currentStage} currentStage={currentStage} />
+        <HomeInfo isVisible={!!currentStage} currentStage={currentStage} />
       </div>
 
       <div className="absolute left-0 right-0 top-[10%]  z-10 flex items-center justify-center">
