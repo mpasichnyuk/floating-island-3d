@@ -13,6 +13,8 @@ import { Box3, Vector3 } from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 import islandScene from "../assets/3d/boatrestaurant.glb";
 import { a } from "@react-spring/three";
+import MysteryBox from "../components/MysterBox";
+
 const MANUAL_ROTATION = { isRotating: false, direction: "right" };
 
 const Island = ({
@@ -176,6 +178,26 @@ const Island = ({
 
   return (
     <a.group rotation={rotation} ref={islandRef}>
+      <MysteryBox
+        rotation={[0, 0.2, 0]}
+        position={[0, 0, 5]}
+        scale={[0.5, 0.5, 0.5]}
+      />
+      <MysteryBox
+        rotation={[0, 0.3, 0]}
+        position={[5, 0, 5]}
+        scale={[0.5, 0.5, 0.5]}
+      />
+      <MysteryBox
+        rotation={[0, 0.4, 0]}
+        position={[-1, 0, -2]}
+        scale={[0.5, 0.5, 0.5]}
+      />
+      <MysteryBox
+        rotation={[0, 0.5, 0]}
+        position={[-2, 0, -3]}
+        scale={[0.5, 0.5, 0.5]}
+      />
       <group scale={0.012}>
         <mesh
           geometry={nodes.boat_restaurant_tutto_0.geometry}
