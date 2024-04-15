@@ -142,20 +142,21 @@ const Island = ({
        */
       const normalizedRotation =
         ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+      console.log("normalizedRotation: ", normalizedRotation);
 
       // Set the current stage based on the island's orientation
       switch (true) {
-        case normalizedRotation >= 5.45 && normalizedRotation <= 5.85:
-          setCurrentStage(4);
-          break;
-        case normalizedRotation >= 0.8 && normalizedRotation <= 1.35:
-          setCurrentStage(3);
-          break;
-        case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
-          setCurrentStage(2);
-          break;
         case normalizedRotation >= 2.4 && normalizedRotation <= 2.9:
           setCurrentStage(1);
+          break;
+        case normalizedRotation >= 1.45 && normalizedRotation <= 1.75:
+          setCurrentStage(2);
+          break;
+        case normalizedRotation >= 0 && normalizedRotation <= 0.35:
+          setCurrentStage(3);
+          break;
+        case normalizedRotation >= 4.4 && normalizedRotation <= 4.8:
+          setCurrentStage(4);
           break;
         default:
           setCurrentStage(null);
@@ -179,24 +180,24 @@ const Island = ({
   return (
     <a.group rotation={rotation} ref={islandRef}>
       <MysteryBox
-        rotation={[0, 0.2, 0]}
-        position={[0, 0, 5]}
-        scale={[0.5, 0.5, 0.5]}
-      />
-      <MysteryBox
-        rotation={[0, 0.3, 0]}
-        position={[5, 0, 5]}
+        rotation={[0, 0.5, 0]}
+        position={[-1.25, 0, -3.5]}
         scale={[0.5, 0.5, 0.5]}
       />
       <MysteryBox
         rotation={[0, 0.4, 0]}
-        position={[-1, 0, -2]}
+        position={[-3, 9, 0]}
         scale={[0.5, 0.5, 0.5]}
       />
       <MysteryBox
-        rotation={[0, 0.5, 0]}
-        position={[-2, 0, -3]}
-        scale={[0.5, 0.5, 0.5]}
+        rotation={[0, 0.2, 0]}
+        position={[0, 0, 2]}
+        scale={[1.5, 1.5, 1.5]}
+      />
+      <MysteryBox
+        rotation={[0, 0.3, 0]}
+        position={[2, 0, 0]}
+        scale={[1, 1, 1]}
       />
       <group scale={0.012}>
         <mesh
