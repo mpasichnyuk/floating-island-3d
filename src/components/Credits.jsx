@@ -9,7 +9,11 @@ const CreditsTooltip = () => {
     <div className="bg-gray-800 text-white p-4 rounded-md shadow-md">
       <h4 className="text-lg font-bold">Assets Used</h4>
       <ul>
-        <li>Asset 1 - License Information</li>
+        <li>
+          {`'Mario Mystery Box' (https://skfb.ly/6QUJu) by planetvfx is licensed
+          under Creative Commons Attribution
+          (http://creativecommons.org/licenses/by/4.0/).`}
+        </li>
         <li>Asset 2 - License Information</li>
       </ul>
     </div>
