@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { arrow } from "../assets/icons";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const InfoBox = ({ text, link, btnText }) => {
   return (
@@ -14,7 +14,7 @@ const InfoBox = ({ text, link, btnText }) => {
   );
 };
 
-const renderContent = {
+const contentObject = {
   1: (
     <h1 className="sm:text-xl sm:leading-snug text-center neo-brutalism-blue py-4 px-8 text-white mx-5">
       Hello, I am
@@ -44,18 +44,25 @@ const renderContent = {
       btnText={"Connect"}
     />
   ),
-  5: <h1>1</h1>,
 };
 
-const HomeInfo = ({ currentStage }) => {
+const HomeInfo = ({ currentStage, isVisible }) => {
+  console.log("isVisible: ", isVisible);
+  console.log("renderContent[currentStage]: ", contentObject[currentStage]);
   return (
-    <motion.div
-      initial={{ y: 100, opacity: 0 }} // Initial state
-      animate={{ y: 0, opacity: 1 }} // Animation state
-      transition={{ duration: 0.5 }} // Transition duration
-    >
-      {renderContent[currentStage] || null}
-    </motion.div>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          key={"home-info-popup"}
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          exit={{ opacity: 0 }}
+        >
+          {contentObject[currentStage]}
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
