@@ -2,7 +2,7 @@
 import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 
-import Loader from "../components/Loader";
+import Loader from "@/components/Loader";
 import Island from "../models/Island";
 import Sky from "../models/Sky";
 import Bird from "../models/Bird";
@@ -43,8 +43,8 @@ const Home = () => {
         <HomeInfo isVisible={!!currentStage} currentStage={currentStage} />
       </div>
 
-      <div className="absolute left-0 right-0 top-[10%]  z-10 flex items-center justify-center">
-        <Hint isVisible={showHint} />
+      <div className="absolute left-0 right-0 bottom-[40%] pointer-events-none  z-10 flex items-center justify-center">
+        <Hint isVisible={showHint} onClick={() => setShowHint(false)} />
       </div>
 
       {/* <div className=" absolute mt-10 ml-10 left-10 top-10  z-10 ">
