@@ -10,14 +10,20 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import mysteryBox from "../assets/3d/mario_mystery_box.glb";
+const SLOW_ROTATION_SPEED = 0.01;
+const FAST_ROTATION_SPEED = 0.1;
+
+const SLOW_FREQ = 1.2;
+const FAST_FREQ = 0.05;
 
 const MysteryBox = (props) => {
+  const { fastRotation } = props;
   const boxRef = useRef();
 
   // this make box slowly rotate around y axis
   useFrame(() => {
     if (boxRef.current) {
-      boxRef.current.rotation.y += 0.01; // Adjust the rotation speed as needed
+      boxRef.current.rotation.y += SLOW_ROTATION_SPEED;
     }
   });
 
