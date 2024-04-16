@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import CTA from "../components/CTA";
+import CallToAction from "@/components/CTA";
 import { skills, experiences } from "../constants";
 import {
   VerticalTimeline,
@@ -11,16 +11,17 @@ const About = () => {
   return (
     <section className="max-container">
       <h1 className="head-text">
-        Hello I am{" "}
+        Hello 👋 I am{" "}
         <span className="blue-gradient_text font-semibold drop-shadow">
           Mikhail
         </span>
       </h1>
       <div className="mt-5 flex flex-col gap-3 text-slate-500">
         <p>
-          Software engineer based in CHarlotte NC, specializing in full stack
-          web development, with experience in motion design, media creation,
-          finance industry, game design and AI
+          Software Engineer based in Charlotte NC <br />
+          Specializing in full stack web development, with additional experience
+          in motion design, media creation and storytelling, as well as
+          accounting and finance industry
         </p>
       </div>
 
@@ -68,7 +69,8 @@ const About = () => {
                     <img
                       src={experience.icon}
                       alt={experience.company_name}
-                      className="w-[60%] h-[60%] object-contain"
+                      // className="w-[60%] h-[60%] object-contain"
+                      className="object-contain rounded-full"
                     />
                   </div>
                 }
@@ -98,7 +100,7 @@ const About = () => {
       </div>
 
       <hr className="border-slate-200" />
-      <CTA />
+      <CallToAction />
     </section>
   );
 };
