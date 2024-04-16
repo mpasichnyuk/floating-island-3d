@@ -20,6 +20,7 @@ const MANUAL_ROTATION = { isRotating: false, direction: "right" };
 const Island = ({
   isRotating,
   setIsRotating,
+  currentStage,
   setCurrentStage,
   rotation,
   setShowHint,
@@ -180,21 +181,25 @@ const Island = ({
   return (
     <a.group rotation={rotation} ref={islandRef}>
       <MysteryBox
+        fastRotation={currentStage === 1}
         rotation={[0, 0.5, 0]}
         position={[-1.25, 0, -3.5]}
         scale={[0.5, 0.5, 0.5]}
       />
       <MysteryBox
+        fastRotation={currentStage === 2}
         rotation={[0, 0.4, 0]}
         position={[-3, 9, 0]}
         scale={[0.5, 0.5, 0.5]}
       />
       <MysteryBox
+        fastRotation={currentStage === 3}
         rotation={[0, 0.2, 0]}
         position={[0, 0, 2]}
         scale={[1.5, 1.5, 1.5]}
       />
       <MysteryBox
+        fastRotation={currentStage === 4}
         rotation={[0, 0.3, 0]}
         position={[2, 0, 0]}
         scale={[1, 1, 1]}
