@@ -47,7 +47,10 @@ const About = () => {
       <div className="py-16">
         <h3 className="subhead-text">Work Experience</h3>
         <div className="mt-5 flex flex-col gap-3 text-slate-500">
-          <p>timeline of work experience</p>
+          <p>
+            Highlights of my work experience. You can find full details at my
+            LinkedIn
+          </p>
         </div>
         <div className="mt-12 flex">
           <VerticalTimeline>
