@@ -29,6 +29,37 @@ export const skills = [
     type: "Frontend",
   },
   {
+    imageUrl: react,
+    name: "Ruby on Rails",
+    type: "Frontend",
+  },
+  {
+    imageUrl: javascript,
+    name: "JavaScript",
+    type: "Frontend",
+  },
+
+  {
+    imageUrl: redux,
+    name: "Redux",
+    type: "State Management",
+  },
+  {
+    imageUrl: react,
+    name: "Docker",
+    type: "Frontend",
+  },
+  {
+    imageUrl: react,
+    name: "PostgreSQL",
+    type: "Frontend",
+  },
+  {
+    imageUrl: react,
+    name: "Storybook",
+    type: "Frontend",
+  },
+  {
     imageUrl: mui,
     name: "Material-UI",
     type: "Frontend",
@@ -44,6 +75,11 @@ export const skills = [
     type: "Version Control",
   },
   {
+    imageUrl: github,
+    name: "GitLab",
+    type: "Version Control",
+  },
+  {
     imageUrl: html,
     name: "HTML",
     type: "Frontend",
@@ -53,25 +89,20 @@ export const skills = [
     name: "CSS",
     type: "Frontend",
   },
-  {
-    imageUrl: javascript,
-    name: "JavaScript",
-    type: "Frontend",
-  },
 
+  // {
+  //   imageUrl: typescript,
+  //   name: "TypeScript",
+  //   type: "Frontend",
+  // },
   {
-    imageUrl: redux,
-    name: "Redux",
-    type: "State Management",
-  },
-  {
-    imageUrl: typescript,
-    name: "TypeScript",
+    imageUrl: tailwindcss,
+    name: "Tailwind CSS",
     type: "Frontend",
   },
   {
     imageUrl: tailwindcss,
-    name: "Tailwind CSS",
+    name: "Three.js",
     type: "Frontend",
   },
 ];
@@ -84,15 +115,11 @@ export const experiences = [
     iconBg: "#accbe1",
     date: "February 2024 - March 2024",
     points: [
-      "Played a significant role in developing a revolutionary web application for managing public finances, contributing to its architecture, design, and implementation",
-      "Implemented responsive and intuitive user interfaces using JavaScript and React, enhancing user experience and engagement. Also Formik, Axios, Yup, Yarn, Redux, Redux-toolkit, React hooks ",
-      "Utilized Docker for containerization, ensuring seamless deployment and scalability of the application.",
-      "Conducted research on integrating third-party AI features into the application, including OpenAI API, Claude 3 chat, and Retrieval-Augmented Generation (RAG), to explore possibilities for enhancing functionality and user experience.",
-      "Collaborated with cross-functional teams including product management and design to gather requirements, prioritize tasks, and deliver high-quality software solutions within deadlines.",
-      "Actively participated in code reviews, debugging, and troubleshooting to maintain code quality and optimize performance.",
-      "Provided technical guidance and mentorship to junior team members, fostering a collaborative and supportive work environment.",
-      "Continuously stayed updated with industry trends and emerging technologies to drive innovation and improve development processes.",
-      "Developing and maintaining web applications using React.js and other related technologies.",
+      "Played a significant role in developing a revolutionary web application for managing public finances, building new and enhancing existing features using React, JavaScript, Ruby on Rails, PostgreSQL, and Docker for seamless deployment and scalability.",
+      "Implemented responsive and intuitive user interfaces using JavaScript and React, enhancing user experience and engagement.",
+      "Collaborated with cross-functional teams to gather requirements, prioritize tasks, and deliver high-quality software solutions within deadlines ",
+      "Actively participated in code reviews, debugging, and troubleshooting to maintain code quality and optimize performance ",
+      "Provided technical guidance and did pair programming sessions with newer team members, fostering a collaborative and supportive work environment ",
     ],
   },
   {
@@ -160,27 +187,46 @@ export const projects = [
       "Personal portfolio website from 2021 made with React, react-router, styled-components, material-ui, react hooks",
 
     link: "https://mpasichnyuk.github.io/",
-    source: "https://mpasichnyuk.github.io/",
+    source: "https://github.com/mpasichnyuk/mpasichnyuk.github.io/",
+  },
+  // {
+  //   iconUrl: react,
+  //   name: "React API Fetch App",
+  //   theme: "btn-back-yellow",
+  //   description:
+  //     "small SPA made with React+Redux, fetches data using API and shows it in cards.",
+  //   link: "https://mpasichnyuk.github.io/react-alfa-test/",
+  //   source: "https://mpasichnyuk.github.io/",
+  // },
+  {
+    iconUrl: react,
+    name: "Interactive React Table",
+    theme: "btn-back-yellow",
+    description:
+      "No libs used, pure vanilla React. Class components used. Implemented filtering, pagination, column sorting from scratch.",
+    link: "https://mpasichnyuk.github.io/Portfolio-projects/panda/table-react/index.html",
+    source:
+      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/panda/table-react",
   },
   {
     iconUrl: react,
-    name: "React API Fetch App",
+    name: "Guess the number",
     theme: "btn-back-yellow",
-    description:
-      "small SPA made with React+Redux, fetches data using API and shows it in cards.",
-    link: "https://mpasichnyuk.github.io/react-alfa-test/",
-    source: "https://mpasichnyuk.github.io/",
+    description: "Mathematical exercises for small children.",
+    link: "https://mpasichnyuk.github.io/Portfolio-projects/react-guess-game/index.html",
+    source:
+      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/react-guess-game",
   },
   {
-    iconUrl: javascript,
-    name: "Nav menu for seals!",
-    theme: "btn-back-blue",
-    description:
-      "That navigation menu is like a seal - they both love to rest on their side.",
-    link: "https://mpasichnyuk.github.io/Portfolio-projects/03-rotating_navigation/index.html",
+    iconUrl: react,
+    name: "Todo list (React)",
+    theme: "btn-back-yellow",
+    description: "Very simple todo-list made with React class components.",
+    link: "https://mpasichnyuk.github.io/Portfolio-projects/react-todos/index.html",
     source:
-      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/03-rotating_navigation",
+      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/react-todos",
   },
+
   {
     iconUrl: css,
     name: "Animated Flex Cards",
@@ -193,7 +239,7 @@ export const projects = [
   },
   {
     iconUrl: javascript,
-    name: "Step Progress Indication",
+    name: "Step Progress",
     theme: "btn-back-black",
     description: "Click button to go to next or previous steps.",
     link: "https://mpasichnyuk.github.io/Portfolio-projects/02-buttons-indicator/index.html",
@@ -202,16 +248,16 @@ export const projects = [
   },
   {
     iconUrl: html,
-    name: "Simple recipy cards",
+    name: "Recipy Cards",
     theme: "btn-back-black",
-    description: "Cards made with flex-box, arranged using CSS-Grid.",
+    description: "Cards made with flexbox, arranged using CSS-Grid.",
     link: "https://mpasichnyuk.github.io/Portfolio-projects/0A-Recipy-cards/index.html",
     source:
       "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/0A-Recipy-cards",
   },
   {
     iconUrl: javascript,
-    name: "Random Chooser App",
+    name: "Random Choice",
     theme: "btn-back-black",
     description: "Enter your options an let the RND-fate decide!",
     link: "https://mpasichnyuk.github.io/Portfolio-projects/13-random-choice/index.html",
@@ -220,7 +266,7 @@ export const projects = [
   },
   {
     iconUrl: javascript,
-    name: "Perfect Project App",
+    name: "Perfect Project",
     theme: "btn-back-black",
     description:
       "Make your perfect project - quick, cheap and of highest quality!.",
@@ -229,7 +275,7 @@ export const projects = [
       "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/32-cheap-checkbox",
   },
   {
-    name: "Glowing Colors Checkered Board",
+    name: "Glowing Colors",
     iconUrl: javascript,
     theme: "btn-back-black",
     description: "Hover your mouse and see for yourself!",
@@ -237,9 +283,10 @@ export const projects = [
     source:
       "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/36-color-hover-board",
   },
+
   {
     iconUrl: javascript,
-    name: "ToDo List",
+    name: "Notes JS",
     theme: "btn-back-black",
     description: "Note-taking list made with JavaScript.",
     link: "https://mpasichnyuk.github.io/Portfolio-projects/49-todo-list/index.html",
@@ -248,16 +295,7 @@ export const projects = [
   },
   {
     iconUrl: javascript,
-    name: "ToDo List",
-    theme: "btn-back-black",
-    description: "Note-taking list made with JavaScript.",
-    link: "https://mpasichnyuk.github.io/Portfolio-projects/49-todo-list/index.html",
-    source:
-      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/49-todo-list",
-  },
-  {
-    iconUrl: javascript,
-    name: "Color Picker with sliders",
+    name: "Color Picker ",
     theme: "btn-back-black",
     description: "RGB-color choice made with JavaScript.",
     link: "https://mpasichnyuk.github.io/Portfolio-projects/panda/color-slider/index.html",
@@ -303,37 +341,20 @@ export const projects = [
     source:
       "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/react-flashcards",
   },
+
   {
-    iconUrl: react,
-    name: "Guess the number",
-    theme: "btn-back-yellow",
-    description: "Mathematical exercises for small children.",
-    link: "https://mpasichnyuk.github.io/Portfolio-projects/react-guess-game/index.html",
-    source:
-      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/react-guess-game",
-  },
-  {
-    iconUrl: react,
-    name: "Todo list (React)",
-    theme: "btn-back-yellow",
-    description: "Very simple todo-list made with React class components.",
-    link: "https://mpasichnyuk.github.io/Portfolio-projects/react-todos/index.html",
-    source:
-      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/react-todos",
-  },
-  {
-    iconUrl: react,
-    name: "Interactive React Table",
-    theme: "btn-back-yellow",
+    iconUrl: javascript,
+    name: "Nav menu for seals!",
+    theme: "btn-back-blue",
     description:
-      "No libs used, pure vanilla React. Class components used. Implemented filtering, pagination, column sorting from scratch.",
-    link: "https://mpasichnyuk.github.io/Portfolio-projects/panda/table-react/index.html",
+      "That navigation menu is like a seal - they both love to rest on their side.",
+    link: "https://mpasichnyuk.github.io/Portfolio-projects/03-rotating_navigation/index.html",
     source:
-      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/panda/table-react",
+      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/03-rotating_navigation",
   },
   {
     iconUrl: css,
-    name: "HTML and CSS cards",
+    name: "Stories Cards",
     theme: "btn-back-black",
     description: "Micro pages, to be used as Stories in a Mobile App.",
     link: "https://mpasichnyuk.github.io/Portfolio-projects/tinkoff/tinkoff.html",
