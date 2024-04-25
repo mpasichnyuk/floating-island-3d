@@ -11,10 +11,11 @@ const Hero = () => {
           </span>
         </h1>
         <p className=" text-black-500">
-          Software engineer based in CHarlotte NC <br />
-          specializing in full stack web development <br />
+          Software engineer based in Charlotte NC <br />
+          specializing in Full Stack Web Development <br />
           with additional experience in <br />
-          motion design, media creation, finance industry, <br />
+          motion design,2d and 2d animation, media creation, finance industry,{" "}
+          <br />
           game design and also AI, LLMs and promt engineering
         </p>
       </div>

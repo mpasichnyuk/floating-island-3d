@@ -20,26 +20,27 @@ const contentObject = {
       Hello, I am
       <span className="font-semibold mx-2 text-white">Mikhail</span>
       👋
-      <br />A Software Engineer based in Charlotte, NC
+      <br />
+      Full Stack Software Engineer based in Charlotte, NC
     </h1>
   ),
   2: (
     <InfoBox
-      text="Full Stack Mid-level Software engineer with additional experience in Finance, and also Video, Design and Animation"
+      text="I'm a Full Stack Software Engineer with additional experience in 2d and 3d design, animation, motion graphics, video production and video editing. I also worked in Finance industry, which is my main area of education."
       link="/about"
       btnText={"Learn more"}
     />
   ),
   3: (
     <InfoBox
-      text="See a portfolio of my projects at my github page"
+      text="See a portfolio of my personal projects and their source code."
       link="/projects"
       btnText={"Look at projects"}
     />
   ),
   4: (
     <InfoBox
-      text="Looking for a developer? Need a project done? Don't be a stranger, contact me!"
+      text="Looking for a developer? Have a job in mind? Don't be a stranger, contact me!"
       link="/contacts"
       btnText={"Connect"}
     />
