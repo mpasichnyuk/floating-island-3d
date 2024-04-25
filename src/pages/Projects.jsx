@@ -1,20 +1,22 @@
 import { Link } from "react-router-dom";
 import CTA from "../components/CTA";
 import { projects } from "../constants";
-import { arrow } from "../assets/icons";
+import { arrow, github } from "../assets/icons";
 
 const Projects = () => {
   return (
     <section className="max-container">
       <h1 className="head-text">
-        My
+        Personal
         <span className="blue-gradient_text drop-shadow font-semibold">
           Projects
         </span>
       </h1>
 
       <p className="text-slate-500 mt-2 leading-relaxed">
-        Description and summary of my projects here
+        In my spare time I developed a few personal projects as a way to
+        showcase my coding skills. They include HTML+CSS, vanilla JavaScript,
+        React (class-based and hooks) and even some game projects!
       </p>
 
       <div className="flex flex-wrap my-20 gap-16">
@@ -37,6 +39,20 @@ const Projects = () => {
               </h4>
               <p className="mt-2 text-slate-500">{project.description}</p>
               <div className="mt-5 flex items-center gap-2 font-poppins">
+                <img
+                  src={github}
+                  alt="github"
+                  className="w-4 h-4 object-contain opacity-30 "
+                />
+                <Link
+                  to={project.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-slate-300"
+                >
+                  {" "}
+                  Source code
+                </Link>
                 <Link
                   to={project.link}
                   target="_blank"
