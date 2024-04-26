@@ -2,7 +2,6 @@ import dbplogo from "../assets/my-icons/dbpartners.png";
 import dbooklogo from "../assets/my-icons/debtbook.png";
 import {
   game,
-  contact,
   css,
   git,
   github,
@@ -159,25 +158,17 @@ export const experiences = [
   },
 ];
 
-export const socialLinks = [
-  {
-    name: "Contact",
-    iconUrl: contact,
-    link: "/contacts",
-  },
-  {
-    name: "GitHub",
-    iconUrl: github,
-    link: "https://github.com/mpasichnyuk",
-  },
-  {
-    name: "LinkedIn",
-    iconUrl: linkedin,
-    link: "https://www.linkedin.com/in/mpasichniuk/",
-  },
-];
-
 export const projects = [
+  {
+    iconUrl: react,
+    name: "3D React Portfolio 2024",
+    theme: "btn-back-yellow",
+    description:
+      "This website! Made with React, Three.js, React Three Fiber, React Router, TailwindCSS",
+
+    link: "/",
+    source: "https://github.com/mpasichnyuk/floating-island-3d/tree/main",
+  },
   {
     iconUrl: react,
     name: "React Portfolio 2021",
@@ -198,38 +189,9 @@ export const projects = [
   //   source: "https://mpasichnyuk.github.io/",
   // },
   {
-    iconUrl: react,
-    name: "Interactive React Table",
-    theme: "btn-back-yellow",
-    description:
-      "No libs used, pure vanilla React. Class components used. Implemented filtering, pagination, column sorting from scratch.",
-    link: "https://mpasichnyuk.github.io/Portfolio-projects/panda/table-react/index.html",
-    source:
-      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/panda/table-react",
-  },
-  {
-    iconUrl: react,
-    name: "Guess the number",
-    theme: "btn-back-yellow",
-    description: "Mathematical exercises for small children.",
-    link: "https://mpasichnyuk.github.io/Portfolio-projects/react-guess-game/index.html",
-    source:
-      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/react-guess-game",
-  },
-  {
-    iconUrl: react,
-    name: "Todo list (React)",
-    theme: "btn-back-yellow",
-    description: "Very simple todo-list made with React class components.",
-    link: "https://mpasichnyuk.github.io/Portfolio-projects/react-todos/index.html",
-    source:
-      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/react-todos",
-  },
-
-  {
     iconUrl: game,
     name: "Fox & Bats",
-    theme: "btn-back-black",
+    theme: "btn-back-yellow",
     description:
       "Very simple prototype for a 2D Zelda-style adventure game, made with GODOT engine",
     link: "https://reynmar.itch.io/fox-and-bats",
@@ -246,6 +208,34 @@ export const projects = [
     source:
       "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/game-pico-adventure",
   },
+  {
+    iconUrl: react,
+    name: "Interactive React Table",
+    theme: "btn-back-black",
+    description:
+      "No libs used, pure vanilla React. Class components used. Implemented filtering, pagination, column sorting from scratch.",
+    link: "https://mpasichnyuk.github.io/Portfolio-projects/panda/table-react/index.html",
+    source:
+      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/panda/table-react",
+  },
+  {
+    iconUrl: react,
+    name: "Guess the number",
+    theme: "btn-back-black",
+    description: "Mathematical exercises for small children.",
+    link: "https://mpasichnyuk.github.io/Portfolio-projects/react-guess-game/index.html",
+    source:
+      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/react-guess-game",
+  },
+  {
+    iconUrl: react,
+    name: "Todo list (React)",
+    theme: "btn-back-black",
+    description: "Very simple todo-list made with React class components.",
+    link: "https://mpasichnyuk.github.io/Portfolio-projects/react-todos/index.html",
+    source:
+      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/react-todos",
+  },
 
   {
     iconUrl: css,
@@ -260,7 +250,7 @@ export const projects = [
   {
     iconUrl: javascript,
     name: "Step Progress",
-    theme: "btn-back-black",
+    theme: "btn-back-blue",
     description: "Click button to go to next or previous steps.",
     link: "https://mpasichnyuk.github.io/Portfolio-projects/02-buttons-indicator/index.html",
     source:
@@ -278,7 +268,7 @@ export const projects = [
   {
     iconUrl: javascript,
     name: "Random Choice",
-    theme: "btn-back-black",
+    theme: "btn-back-blue",
     description: "Enter your options an let the RND-fate decide!",
     link: "https://mpasichnyuk.github.io/Portfolio-projects/13-random-choice/index.html",
     source:
@@ -287,7 +277,7 @@ export const projects = [
   {
     iconUrl: javascript,
     name: "Perfect Project",
-    theme: "btn-back-black",
+    theme: "btn-back-blue",
     description:
       "Make your perfect project - quick, cheap and of highest quality!.",
     link: "https://mpasichnyuk.github.io/Portfolio-projects/32-cheap-checkbox/index.html",
@@ -297,7 +287,7 @@ export const projects = [
   {
     name: "Glowing Colors",
     iconUrl: javascript,
-    theme: "btn-back-black",
+    theme: "btn-back-blue",
     description: "Hover your mouse and see for yourself!",
     link: "https://mpasichnyuk.github.io/Portfolio-projects/36-color-hover-board/index.html",
     source:
@@ -307,7 +297,7 @@ export const projects = [
   {
     iconUrl: javascript,
     name: "Notes JS",
-    theme: "btn-back-black",
+    theme: "btn-back-blue",
     description: "Note-taking list made with JavaScript.",
     link: "https://mpasichnyuk.github.io/Portfolio-projects/49-todo-list/index.html",
     source:
@@ -316,7 +306,7 @@ export const projects = [
   {
     iconUrl: javascript,
     name: "Color Picker ",
-    theme: "btn-back-black",
+    theme: "btn-back-blue",
     description: "RGB-color choice made with JavaScript.",
     link: "https://mpasichnyuk.github.io/Portfolio-projects/panda/color-slider/index.html",
     source:
@@ -336,7 +326,7 @@ export const projects = [
   {
     iconUrl: react,
     name: "Flash Cards",
-    theme: "btn-back-yellow",
+    theme: "btn-back-black",
     description: "Educational project, made with React class components.",
     link: "https://mpasichnyuk.github.io/Portfolio-projects/react-flashcards/index.html",
     source:
