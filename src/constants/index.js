@@ -227,6 +227,27 @@ export const projects = [
   },
 
   {
+    iconUrl: game,
+    name: "Fox & Bats",
+    theme: "btn-back-black",
+    description:
+      "Very simple prototype for a 2D Zelda-style adventure game, made with GODOT engine",
+    link: "https://reynmar.itch.io/fox-and-bats",
+    source:
+      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/game-foxnbats",
+  },
+  {
+    iconUrl: game,
+    name: "PICO-8 Adventure",
+    theme: "btn-back-yellow",
+    description:
+      "Retro pixel-art game prototype for top-down adventure, made with PICO-8 engine.",
+    link: "https://reynmar.itch.io/micro-adventure-beta",
+    source:
+      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/game-pico-adventure",
+  },
+
+  {
     iconUrl: css,
     name: "Animated Flex Cards",
     theme: "btn-back-pink",
@@ -301,16 +322,7 @@ export const projects = [
     source:
       "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/panda/color-slider",
   },
-  {
-    iconUrl: game,
-    name: "Fox & Bats",
-    theme: "btn-back-black",
-    description:
-      "Very simple prototype for a 2D Zelda-style adventure game, made with GODOT engine",
-    link: "https://reynmar.itch.io/fox-and-bats",
-    source:
-      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/game-foxnbats",
-  },
+
   {
     iconUrl: game,
     name: "Text for Glory",
@@ -320,16 +332,6 @@ export const projects = [
     link: "https://reynmar.itch.io/textforglory",
     source:
       "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/game-glory",
-  },
-  {
-    iconUrl: game,
-    name: "PICO-8 Adventure",
-    theme: "btn-back-yellow",
-    description:
-      "Retro pixel-art game prototype for top-down adventure, made with PICO-8 engine.",
-    link: "https://reynmar.itch.io/micro-adventure-beta",
-    source:
-      "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/game-pico-adventure",
   },
   {
     iconUrl: react,
