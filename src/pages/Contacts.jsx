@@ -76,7 +76,18 @@ const Contacts = () => {
       {/* <Alert type="success" text="success" /> */}
       <div className="flex-1 min-w[50%] flex flex-col">
         <h1 className="head-text">Get in touch!</h1>
-        <p>Find me on LinkedIn or shoot me a message right here</p>
+        <p>
+          Find me on{" "}
+          <a
+            className="text-cyan-600"
+            target="_blank"
+            href="https://www.linkedin.com/in/mpasichniuk/"
+          >
+            {" "}
+            LinkedIn
+          </a>{" "}
+          or shoot me a message right here
+        </p>
         <form
           onSubmit={handleSubmit}
           className="w-full flex flex-col gap-7 mt-14"
