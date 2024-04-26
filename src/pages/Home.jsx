@@ -16,7 +16,6 @@ import Hint from "../components/Hint";
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
-  console.log("currentStage: ", currentStage);
   const [showHint, setShowHint] = useState(true);
 
   const adjustIslandForScreenSize = () => {
