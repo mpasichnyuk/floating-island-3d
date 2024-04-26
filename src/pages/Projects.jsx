@@ -42,13 +42,13 @@ const Projects = () => {
                 <img
                   src={github}
                   alt="github"
-                  className="w-4 h-4 object-contain opacity-30 "
+                  className="w-4 h-4 object-contain opacity-40 "
                 />
                 <Link
                   to={project.source}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-slate-300"
+                  className="font-semibold text-slate-400"
                 >
                   {" "}
                   Source code
