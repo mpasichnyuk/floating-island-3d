@@ -48,23 +48,39 @@ const contentObject = {
 };
 
 const HomeInfo = ({ currentStage, isVisible }) => {
-  console.log("isVisible: ", isVisible);
-  console.log("renderContent[currentStage]: ", contentObject[currentStage]);
   return (
-    <AnimatePresence>
+    <>
       {isVisible && (
-        <motion.div
-          key={"home-info-popup"}
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          exit={{ opacity: 0 }}
-        >
-          {contentObject[currentStage]}
-        </motion.div>
+        <>
+          <div
+            className={
+              isVisible
+                ? "animate-fadeInAndMoveUp"
+                : "animate-fadeOutAndMoveDown"
+            }
+          >
+            {isVisible ? contentObject[currentStage] : null}
+          </div>
+        </>
       )}
-    </AnimatePresence>
+    </>
   );
+  // animated version
+  // return (
+  //   <AnimatePresence>
+  //     {isVisible && (
+  //       <motion.div
+  //         key={"home-info-popup"}
+  //         initial={{ y: 100, opacity: 0 }}
+  //         animate={{ y: 0, opacity: 1 }}
+  //         transition={{ duration: 0.5 }}
+  //         exit={{ opacity: 0 }}
+  //       >
+  //         {contentObject[currentStage]}
+  //       </motion.div>
+  //     )}
+  //   </AnimatePresence>
+  // );
 };
 
 export default HomeInfo;
