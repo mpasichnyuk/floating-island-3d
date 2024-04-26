@@ -1,25 +1,24 @@
-import { meta, shopify, tesla } from "../assets/images";
 import dbplogo from "../assets/my-icons/dbpartners.png";
 import dbooklogo from "../assets/my-icons/debtbook.png";
 import {
-  car,
+  game,
   contact,
   css,
-  estate,
   git,
   github,
   html,
   javascript,
   linkedin,
   mui,
-  pricewise,
   react,
   redux,
-  snapgram,
-  summiz,
   tailwindcss,
-  threads,
-  typescript,
+  docker,
+  postgres,
+  storybook,
+  gitlab,
+  threejs,
+  ruby,
 } from "../assets/icons";
 
 export const skills = [
@@ -29,7 +28,7 @@ export const skills = [
     type: "Frontend",
   },
   {
-    imageUrl: react,
+    imageUrl: ruby,
     name: "Ruby on Rails",
     type: "Frontend",
   },
@@ -45,17 +44,17 @@ export const skills = [
     type: "State Management",
   },
   {
-    imageUrl: react,
+    imageUrl: docker,
     name: "Docker",
     type: "Frontend",
   },
   {
-    imageUrl: react,
+    imageUrl: postgres,
     name: "PostgreSQL",
     type: "Frontend",
   },
   {
-    imageUrl: react,
+    imageUrl: storybook,
     name: "Storybook",
     type: "Frontend",
   },
@@ -75,7 +74,7 @@ export const skills = [
     type: "Version Control",
   },
   {
-    imageUrl: github,
+    imageUrl: gitlab,
     name: "GitLab",
     type: "Version Control",
   },
@@ -101,7 +100,7 @@ export const skills = [
     type: "Frontend",
   },
   {
-    imageUrl: tailwindcss,
+    imageUrl: threejs,
     name: "Three.js",
     type: "Frontend",
   },
@@ -303,7 +302,7 @@ export const projects = [
       "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/panda/color-slider",
   },
   {
-    iconUrl: html,
+    iconUrl: game,
     name: "Fox & Bats",
     theme: "btn-back-black",
     description:
@@ -313,7 +312,7 @@ export const projects = [
       "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/game-foxnbats",
   },
   {
-    iconUrl: html,
+    iconUrl: game,
     name: "Text for Glory",
     theme: "btn-back-black",
     description:
@@ -323,9 +322,9 @@ export const projects = [
       "https://github.com/mpasichnyuk/Portfolio-projects/tree/master/game-glory",
   },
   {
-    iconUrl: javascript,
+    iconUrl: game,
     name: "PICO-8 Adventure",
-    theme: "btn-back-black",
+    theme: "btn-back-yellow",
     description:
       "Retro pixel-art game prototype for top-down adventure, made with PICO-8 engine.",
     link: "https://reynmar.itch.io/micro-adventure-beta",
