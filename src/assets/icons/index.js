@@ -20,8 +20,9 @@ import storybook from "./storybook-icon-svgrepo-com.svg";
 import threejs from "./Threejs-logo.svg";
 import ruby from "./ruby-svgrepo-com.svg";
 import github142 from "./github-142-svgrepo-com.png";
-
+import vim from "./vim-svgrepo-com.svg"
 export {
+  vim,
   github142,
   ruby,
   rails,

@@ -18,6 +18,7 @@ import {
   gitlab,
   threejs,
   ruby,
+  vim,
 } from "../assets/icons";
 
 export const skills = [
@@ -60,6 +61,12 @@ export const skills = [
   {
     imageUrl: mui,
     name: "Material-UI",
+    type: "Frontend",
+  },
+
+  {
+    imageUrl: vim,
+    name: "Vim",
     type: "Frontend",
   },
   {
