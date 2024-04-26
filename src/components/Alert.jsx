@@ -5,7 +5,7 @@ const Alert = ({ type, text }) => {
     <div className="absolute top-10 left-0 right-0 flex justify-center items-center ">
       <div
         className={`${
-          type === "danger" ? "bg-red-800" : "bg-blue-800"
+          type === "danger" ? "bg-red-800" : "bg-blue-300"
         } p-2 text-indigo-100 leading-none lg:rounded-full lg:inline-flex items-center justify-center`}
         role="alert"
       >
@@ -16,7 +16,7 @@ const Alert = ({ type, text }) => {
         >
           {type === "danger" ? "Failed" : "Success!"}
         </p>
-        <p className="mr-2 text-left">{text}</p>
+        <p className="mr-2 text-left text-black">{text}</p>
       </div>
     </div>
   );
