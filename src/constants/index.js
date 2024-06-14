@@ -19,6 +19,7 @@ import {
   threejs,
   ruby,
   vim,
+  rails,
 } from "../assets/icons";
 
 export const skills = [
@@ -175,6 +176,16 @@ export const projects = [
 
     link: "/",
     source: "https://github.com/mpasichnyuk/floating-island-3d/tree/main",
+  },
+  {
+    iconUrl: ruby,
+    name: "AskIt! - Ruby on Rails App",
+    theme: "btn-back-yellow",
+    description:
+      "Warning! Hosting may take a minute to load. Ruby on Rails RESTful CRUD app, made using Ruby, Rails, kaminari, Bootstrap5, BCrypt, PostgreSQL, CALSXLSX",
+
+    link: "https://askit-rails-crud-app.onrender.com",
+    source: "https://github.com/mpasichnyuk/AskIt",
   },
   {
     iconUrl: react,
