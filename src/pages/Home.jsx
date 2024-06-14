@@ -46,9 +46,6 @@ const Home = () => {
         <Hint isVisible={showHint} onClick={() => setShowHint(false)} />
       </div>
 
-      {/* <div className=" absolute mt-10 ml-10 left-10 top-10  z-10 ">
-        <Hero />
-      </div> */}
       <Canvas
         className={`w-full h-screen bg-transparent ${
           isRotating ? "cursor-grabbing" : "cursor-grab"

@@ -1,11 +1,14 @@
 import { Html } from "@react-three/drei";
+import Spinner from "../assets/my-icons/gear-spinner.svg";
 
 const Loader = () => {
   return (
-    <Html>
-      <div className="flex justify-center items-center ">
-        <div className="w-20 h-20 border-2 border-opacity-20 border-blue-500 border-t-blue-500 rounded-full animate-spin" />
-        Loader
+    <Html center>
+      <div
+        className="flex justify-center items-center"
+        style={{ width: "100px", height: "100px" }}
+      >
+        <img src={Spinner} alt="Loading..." />
       </div>
     </Html>
   );

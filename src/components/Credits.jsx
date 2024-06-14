@@ -18,6 +18,7 @@ const CreditsTooltip = () => {
         <li>{`"Boatrestaurant" (https://skfb.ly/oBWWN) by GiuliaM is licensed under CC Attribution-NonCommercial-NoDerivs (http://creativecommons.org/licenses/by-nc-nd/4.0/).`}</li>
         <li>{`"phoenix bird" (https://skfb.ly/6vLBp) by NORBERTO-3D is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).`}</li>
         <li>{`"Fox" (https://skfb.ly/orXGp) by victory_mirosya is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)`}</li>
+        <li>{`Loader animation by https://www.svgbackgrounds.com`}</li>
       </ul>
     </div>
   );
